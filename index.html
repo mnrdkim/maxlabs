@@ -1,50 +1,77 @@
+’ve added a "Theme Toggle" button in the nav and a hidden modal overlay for detailed service descriptions.
+
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAX Labs | Digital Solutions & Automation</title>
+    <title>MAX Labs | Intelligent Solutions</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
     <nav>
         <div class="logo">MAX <span>Labs</span></div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-right">
+            <button id="theme-toggle" class="btn-icon">🌓</button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <header id="home">
         <div class="hero">
-            <h1>Engineering the Future of <span>Automation</span></h1>
-            <p>Custom software consultations and digital transformation for modern enterprises.</p>
-            <button onclick="scrollToServices()">View Our Solutions</button>
+            <h1 id="hero-text">Innovate. <span>Automate.</span></h1>
+            <p>The bridge between complex problems and elegant digital code.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="scrollToSection('services')">Explore Services</button>
+                <button class="btn-secondary" onclick="scrollToSection('contact')">Get a Quote</button>
+            </div>
         </div>
     </header>
 
     <section id="services">
         <h2>Our Expertise</h2>
         <div class="grid">
-            <div class="card">
-                <h3>Digital Solutions</h3>
-                <p>Tailor-made platforms designed to scale your business operations.</p>
-            </div>
-            <div class="card">
+            <div class="card" onclick="openModal('automation')">
+                <div class="icon">🤖</div>
                 <h3>Automation</h3>
-                <p>Eliminate repetitive tasks with smart AI and workflow integration.</p>
+                <p>Click to see how we save 100+ hours/month for clients.</p>
+                <button class="btn-text">Learn More →</button>
             </div>
-            <div class="card">
-                <h3>Software Consultation</h3>
-                <p>Expert guidance on architecture, tech stacks, and digital strategy.</p>
+            <div class="card" onclick="openModal('software')">
+                <div class="icon">💻</div>
+                <h3>Software Consults</h3>
+                <p>Architecture audits and tech-stack optimization.</p>
+                <button class="btn-text">Learn More →</button>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 MAX Labs. All rights reserved.</p>
-    </footer>
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Let's Build Something</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <textarea id="message" placeholder="Tell us about your project" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+            <div id="formFeedback" class="hidden"></div>
+        </div>
+    </section>
+
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Service Detail</h2>
+            <p id="modalBody">Detailed information goes here...</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

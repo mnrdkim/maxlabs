@@ -1,27 +1,54 @@
-// Smooth scroll to services section
-function scrollToServices() {
-    document.getElementById('services').scrollIntoView({ 
-        behavior: 'smooth' 
-    });
-}
-
-// Simple reveal animation on scroll
-window.addEventListener('scroll', () => {
-    const cards = document.querySelectorAll('.card');
-    const triggerBottom = window.innerHeight / 5 * 4;
-
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        if(cardTop < triggerBottom) {
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-        }
-    });
+// 1. Theme Toggle Logic
+const themeBtn = document.getElementById('theme-toggle');
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    themeBtn.innerHTML = document.body.classList.contains('light-theme') ? '🌙' : '🌓';
 });
 
-// Set initial state for animation
-document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = "all 0.6s ease-out";
+// 2. Smooth Scroll
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// 3. Modal Content Data
+const serviceData = {
+    automation: {
+        title: "Workflow Automation",
+        body: "We use Python, Zapier, and AI agents to automate your CRM, email marketing, and data entry. Typical clients see a 40% reduction in operational costs."
+    },
+    software: {
+        title: "Software Consultation",
+        body: "From choosing between AWS and Azure to refactoring legacy code, our senior architects provide 1-on-1 strategy sessions."
+    }
+};
+
+function openModal(type) {
+    const modal = document.getElementById('serviceModal');
+    document.getElementById('modalTitle').innerText = serviceData[type].title;
+    document.getElementById('modalBody').innerText = serviceData[type].body;
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('serviceModal').style.display = "none";
+}
+
+// Close modal if clicking outside the box
+window.onclick = function(event) {
+    const modal = document.getElementById('serviceModal');
+    if (event.target == modal) modal.style.display = "none";
+}
+
+// 4. Form Handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const feedback = document.getElementById('formFeedback');
+    feedback.innerText = "Processing your request...";
+    feedback.classList.remove('hidden');
+    
+    // Simulate API Call
+    setTimeout(() => {
+        feedback.innerText = "Thanks, " + document.getElementById('name').value + "! Our team will contact you shortly.";
+        this.reset();
+    }, 1500);
 });
