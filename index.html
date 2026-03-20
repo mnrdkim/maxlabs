@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAX Labs | Premier Digital Solutions</title>
+    <title>MAX Labs | Digital Automation & Software</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -12,13 +12,15 @@
     <nav class="navbar">
         <div class="container nav-wrapper">
             <div class="logo-container">
-                <img src="maxlabs_logo.png" alt="MAX Labs" class="site-logo">
-                <div class="logo-text">MAX<span>Labs</span></div>
+                <a href="#home" class="logo-link">
+                    <img src="maxlabs_logo.png" alt="MAX Labs" class="site-logo">
+                    <div class="logo-text">MAX<span>Labs</span></div>
+                </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#calculator">Pricing</a></li>
+                <li><a href="#appointments">Book Call</a></li>
                 <li><button id="theme-toggle" class="btn-icon">🌓</button></li>
             </ul>
         </div>
@@ -26,62 +28,62 @@
 
     <header id="home" class="hero-section">
         <div class="container text-center">
-            <span class="badge">Next-Gen Automation</span>
-            <h1 class="display-1">Scale Your Business with <span>Intelligence</span></h1>
-            <p class="lead">We bridge the gap between complex manual workflows and seamless digital automation.</p>
+            <span class="badge">Innovation Hub 2026</span>
+            <h1 class="display-1">Smart <span>Automation</span> for Modern Teams</h1>
+            <p class="lead">Eliminate technical debt and manual bottlenecks with custom digital architecture.</p>
             <div class="cta-group">
-                <button class="btn btn-primary btn-lg" onclick="scrollToSection('appointments')">Book a Strategy Call</button>
-                <button class="btn btn-outline btn-lg" onclick="scrollToSection('services')">View Solutions</button>
+                <button class="btn btn-primary btn-lg" onclick="scrollToSection('appointments')">Get Started</button>
+                <button class="btn btn-outline btn-lg" onclick="scrollToSection('services')">Our Solutions</button>
             </div>
         </div>
     </header>
 
     <section id="services" class="py-5">
         <div class="container">
-            <h2 class="section-title">Our Expertise</h2>
-            <div class="row grid-3">
-                <div class="card reveal" onclick="openModal('automation')">
-                    <div class="card-icon">⚡</div>
+            <h2 class="section-title text-center">Our Expertise</h2>
+            <div class="grid-3">
+                <div class="card" onclick="openModal('automation')">
+                    <div class="card-icon">🤖</div>
                     <h3>Workflow Automation</h3>
-                    <p>Reduce operational overhead by 40% with AI-driven logic.</p>
-                    <span class="link-styled">Details →</span>
+                    <p>Integrate AI agents into your CRM and daily operations.</p>
+                    <span class="link-styled">Learn More →</span>
                 </div>
-                <div class="card reveal" onclick="openModal('software')">
-                    <div class="card-icon">🛠️</div>
+                <div class="card" onclick="openModal('software')">
+                    <div class="card-icon">💻</div>
                     <h3>Software Consults</h3>
-                    <p>Strategic tech-stack auditing and custom architecture design.</p>
-                    <span class="link-styled">Details →</span>
+                    <p>Full-stack architecture reviews and tech-stack migration.</p>
+                    <span class="link-styled">Learn More →</span>
                 </div>
-                <div class="card reveal" onclick="openModal('digital')">
-                    <div class="card-icon">🌐</div>
+                <div class="card" onclick="openModal('digital')">
+                    <div class="card-icon">🚀</div>
                     <h3>Digital Solutions</h3>
-                    <p>End-to-end web and mobile platforms built for scale.</p>
-                    <span class="link-styled">Details →</span>
+                    <p>Custom-built web platforms tailored to your business needs.</p>
+                    <span class="link-styled">Learn More →</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="calculator" class="py-5 bg-alt">
-        <div class="container">
+        <div class="container small-container">
             <div class="glass-box">
-                <h2>Estimate Your ROI</h2>
+                <h2 class="text-center">Project Estimator</h2>
                 <div class="calc-grid">
                     <label class="check-item">
                         <input type="checkbox" class="service-check" data-price="1500">
-                        <span class="check-label">Software Build</span>
+                        <span class="check-box-custom"></span> Software Development
                     </label>
                     <label class="check-item">
                         <input type="checkbox" class="service-check" data-price="800">
-                        <span class="check-label">Automation Setup</span>
+                        <span class="check-box-custom"></span> Automation Setup
                     </label>
                     <label class="check-item">
                         <input type="checkbox" class="service-check" data-price="500">
-                        <span class="check-label">Strategy Audit</span>
+                        <span class="check-box-custom"></span> Strategic Consultation
                     </label>
                 </div>
                 <div class="total-bar">
-                    <h3>Estimated Project Total: <span id="total-price">$0</span></h3>
+                    <h3>Estimated Total: <span id="total-price">$0</span></h3>
                 </div>
             </div>
         </div>
@@ -89,23 +91,33 @@
 
     <section id="appointments" class="py-5">
         <div class="container small-container">
-            <h2 class="text-center">Ready to start?</h2>
             <div class="booking-card">
-                <input type="date" id="appt-date" class="form-control">
+                <h2 class="text-center">Book Your Strategy Call</h2>
+                <div class="form-group">
+                    <label>Select Date</label>
+                    <input type="date" id="appt-date" class="form-control" value="2026-03-25">
+                </div>
                 <div id="time-slots" class="time-grid"></div>
-                <button id="book-btn" class="btn btn-primary btn-block" disabled>Confirm Appointment</button>
+                <button id="book-btn" class="btn btn-primary btn-block" disabled>Confirm Booking</button>
             </div>
         </div>
     </section>
 
-    <div id="success-overlay" class="overlay hidden">
-        <div class="success-card">
-            <div class="check-icon">✓</div>
-            <h2>Appointment Booked!</h2>
-            <p>A confirmation email has been sent to you.</p>
-            <button class="btn btn-primary" onclick="closeSuccess()">Close</button>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo-text">MAX<span>Labs</span></div>
+                <p>Engineering the future of digital solutions.</p>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Contact Us</strong></p>
+                <a href="mailto:maxlabs.systems@gmail.com">info@maxlabs.com</a>
+                <div class="social-icons">
+                    <a href="https://facebook.com/maxlabsinnovations" target="_blank">Facebook</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <div id="serviceModal" class="modal">
         <div class="modal-content glass">
@@ -115,18 +127,27 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo-text">MAX<span>Labs</span></div>
-                <p>Engineering digital excellence.</p>
+    <div id="success-overlay" class="overlay hidden">
+        <div class="success-card glass">
+            <div class="check-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Our team will reach out to you shortly.</p>
+            <button class="btn btn-primary" onclick="closeSuccess()">Done</button>
+        </div>
+    </div>
+
+    <div id="chat-widget" class="chat-closed" onclick="toggleChat()">
+        <div id="chat-header">💬 Support Online</div>
+        <div id="chat-body" class="hidden">
+            <div id="chat-history">
+                <div class="message bot">Hi! How can MAX Labs help you today?</div>
             </div>
-            <div class="footer-links">
-                <a href="mailto:info@maxlabs.com">Email Us</a>
-                <a href="https://facebook.com/maxlabs" target="_blank">Facebook</a>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type here...">
+                <button onclick="sendChat(event)">Send</button>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
