@@ -53,9 +53,9 @@ function closeSuccess() {
 
 // --- Service Modals ---
 const modalData = {
-    automation: { title: "Workflow Automation", body: "We use high-level Python scripts and AI triggers to automate redundant data entry, email filtering, and CRM updates." },
-    software: { title: "Software Consultation", body: "Our senior architects analyze your current tech stack to identify vulnerabilities, scalability issues, and cost-saving migrations." },
-    digital: { title: "Digital Solutions", body: "From SaaS platforms to complex portals, we build responsive, lightning-fast digital environments." }
+    automation: { title: "Workflow Automation", body: "We use High-Level Scripting, AI Triggers & Decision Making, Core Automation Use-Cases. Efficiency Metric: On average, automated workflows can reduce the time spent on administrative tasks by up to 40%, significantly lowering operational overhead and eliminating burnout from repetitive work." },
+    software: { title: "Software Consultation", body: "Our senior architects analyze your current tech stack to identify vulnerabilities, scalability issues, and cost-saving migrations. Vulnerability Identification, Scalability Issues and Cost-Saving Migrations." },
+    digital: { title: "Digital Solutions", body: "From SaaS platforms to complex portals, we build responsive, lightning-fast digital environments. Software as a Service (SaaS) requires more than just a functional UI; it requires a robust, multi-tenant architecture. Complex Portals (Enterprise & Client), True Responsive Design. The Competitive Edge: In a world where a 100ms delay can decrease conversion rates by 7%, our focus on performance ensures your digital environment isn't just a placeholder—it’s a high-performance sales and operations tool." }
 };
 
 function openModal(id) {
